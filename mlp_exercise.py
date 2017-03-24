@@ -1,5 +1,5 @@
 """
-Partially based on
+Based on
 https://triangleinequality.wordpress.com/2014/03/31/neural-networks-part-2/
 """
 import numpy as np
@@ -168,10 +168,10 @@ class MLP_Regression(object):
 
 def test_regression(plots=True):
     #Create data
-    n=20
-    X=np.linspace(0,3*np.pi,num=n)
-    X.shape=(n,1)
-    y=np.sin(X)
+    n = 20
+    X = np.linspace(0,3*np.pi,num=n)
+    X.shape = (n, 1)
+    y = np.sin(X)
     #set the architecture
     param = ((1,0,0),(20, sigmoid, sigmoid_prime),(1,identity, identity_prime))
     #Set learning rate.
@@ -181,6 +181,7 @@ def test_regression(plots=True):
         Network = MLP_Regression(X,y,param, True)
         Network.train(3000, learning_rate=learning_rate)
         pred = Network.predict(X)
+        print 'pred = ', pred
         predictions.append([learning_rate, pred])
 
 
